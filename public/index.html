@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Synchronized Video Player Demo</title>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, width=device-width"/>
+		<style type="text/css">
+			body {
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				overflow: hidden;
+
+				height: 100%;
+				width: 100%;
+				margin: 0px;
+				padding: 0px;
+			}
+
+			video {
+				max-width: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<video id="video" src="http://localhost:8888/watch/video/gameofthrones.webm" controls loop>
+			<!-- https://vid.ly/8c8t7r?content=video -->
+			<!--<source src="" type="video/webm"/>-->
+		</video>
+		<div id="clock"></div>
+		<div id="video-time"></div>
+		<!--<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>-->
+		<script src="js/lib/sockjs-0.3.min.js"></script>
+		<script src="js/remote-clock.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "sync-player",
+  "version": "0.0.1",
+  "description": "Video Sync Demo",
+  "repository": "git@github.com:povdocs/sync-player.git",
+  "scripts": {
+    "start": "node ./time-server.js",
+    "test": "./node_modules/.bin/http-server"
+  },
+  "main": "./time-server",
+  "keywords": [],
+  "dependencies": {
+    "sockjs": "^0.3.9"
+  },
+  "devDependencies": {
+    "http-server": "^   0.7.1"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10"
+  }
+}
