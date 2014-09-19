@@ -120,7 +120,7 @@
 		checkSync();
 	}
 
-	serverUrl = location.protocol + '//' + location.hostname + ':' + CLOCK_PORT + '/time-server';
+	serverUrl = 'http://digital.pov.org:8080/time-server/';
 	remoteClock = new RemoteClock(serverUrl, stateUpdate);
 
 	video.muted = true;
