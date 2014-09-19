@@ -86,8 +86,6 @@
 
 		//we missed our window, so seek ahead and try again
 		if (currentDiff >= EPSILON) {
-			console.log('currentDiff', currentDiff);
-			console.log(Math.pow(2, Math.min(4, retries / 2 + 1)));
 			targetTime = currentTime + Math.pow(2, Math.min(4, retries / 2 + 1));
 			video.pause();
 			console.log('missed window, seeking from', video.currentTime, 'to', targetTime, retries, 'retries so far');
@@ -112,6 +110,7 @@
 			return;
 		}
 
+		console.log('video metadata', video.duration, video.videoWidth, video.videoHeight);
 		durationInMilliseconds = Math.round(video.duration * 1000);
 		if (remoteClock.accuracy() > 100) {
 			return;
