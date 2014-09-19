@@ -61,7 +61,7 @@
 		//we missed our window, so seek ahead and try again
 		if (currentDiff >= EPSILON && video.readyState < 2 || currentDiff > 1) {
 			skip = Math.pow(2, Math.min(4, Math.max(retries, 1)));
-			targetTime = currentTime + skip;
+			targetTime = (currentTime + skip) % video.duration;
 			video.pause();
 			video.currentTime = targetTime;
 			retries++;
