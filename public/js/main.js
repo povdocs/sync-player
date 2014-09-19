@@ -2,7 +2,7 @@
 	var CLOCK_PORT = 5001,
 		EPSILON = -1 / 30,
 
-		maxOffset = 0.1,
+		maxOffset = 1 / 30,
 		video = document.getElementById('video'),
 		clock = document.getElementById('clock'),
 		videoTime = document.getElementById('video-time'),
@@ -91,7 +91,7 @@
 			console.log('missed window, seeking from', video.currentTime, 'to', targetTime, retries, 'retries so far');
 			video.currentTime = targetTime;
 			retries++;
-			maxOffset = Math.max(maxOffset, (retries + 1) * 0.1);
+			maxOffset = Math.max(maxOffset, (retries + 1) * 2 / 30);
 			console.log('maxOffset', maxOffset);
 			checkAgain(1000);
 			return;
@@ -125,8 +125,9 @@
 	video.addEventListener('durationchange', stateUpdate, false);
 	video.addEventListener('playing', stateUpdate, false);
 	video.addEventListener('seeked', stateUpdate, false);
-	window.addEventListener('touchstart', function touchstart() {
+	window.addEventListener('touchstart', function touchstart(evt) {
 		video.load();
+		evt.preventDefault();
 		window.removeEventListener('touchstart', touchstart, true);
 	}, true);
 	updateClockDisplay();
