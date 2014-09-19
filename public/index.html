@@ -17,17 +17,30 @@
 			}
 
 			video {
-				max-width: 500px;
+				max-width: 80%;
+				padding: 10% 10% 0 10%;
+			}
+
+			div {
+				padding: 0 10%;
+			}
+
+			#volume {
+				width: 70%;
 			}
 		</style>
 	</head>
 	<body>
-		<video id="video" controls loop>
+		<video id="video" loop>
 			<source src="http://pov-tc.pbs.org/pov/flv/2014/koch-mid.mp4" type="video/mp4"/>
 			<source src="http://pov-tc.pbs.org/pov/flv/2014/koch-mid.webm" type="video/webm"/>
 		</video>
-		<div id="clock"></div>
-		<div id="video-time"></div>
+		<div>
+			<label>Volume: </label><input type="range" min="0" max="1" step="0.0001" value="1" id="volume"/>
+			<button id="mute">Unmute</button>
+		</div>
+		<div>Server Time: <span id="clock"></span></div>
+		<div>Video Time: <span id="video-time"></span></div>
 		<!--<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>-->
 		<script src="js/lib/sockjs-0.3.min.js"></script>
 		<script src="js/remote-clock.js"></script>

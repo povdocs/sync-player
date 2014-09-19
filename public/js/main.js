@@ -6,6 +6,8 @@
 		video = document.getElementById('video'),
 		clock = document.getElementById('clock'),
 		videoTime = document.getElementById('video-time'),
+		volume = document.getElementById('volume'),
+		muted = document.getElementById('muted'),
 
 		targetTime = 0,
 		serverUrl,
@@ -36,8 +38,8 @@
 	}
 
 	function updateClockDisplay() {
-		clock.innerHTML = (new Date(remoteClock.time())).toTimeString();
-		videoTime.innerHTML = video.currentTime;
+		clock.textContent = (new Date(remoteClock.time())).toTimeString();
+		videoTime.textContent = video.currentTime.toFixed(2);
 		requestAnimationFrame(updateClockDisplay);
 	}
 
@@ -125,6 +127,20 @@
 	video.addEventListener('durationchange', stateUpdate, false);
 	video.addEventListener('playing', stateUpdate, false);
 	video.addEventListener('seeked', stateUpdate, false);
+	video.addEventListener('volumechange', function () {
+		volume.value = video.volume;
+		if (video.muted) {
+			mute.textContent = 'Unmute';
+		} else {
+			mute.textContent = 'Mute';
+		}
+	});
+	mute.addEventListener('click', function () {
+		video.muted = !video.muted;
+	});
+	volume.addEventListener('input', function () {
+		video.volume = volume.value;
+	});
 	window.addEventListener('touchstart', function touchstart(evt) {
 		video.load();
 		evt.preventDefault();
