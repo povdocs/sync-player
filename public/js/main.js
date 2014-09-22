@@ -1,6 +1,7 @@
 (function (window) {
 	var CLOCK_PORT = 5001,
 		EPSILON = -1 / 15,
+		DURATION = 149.619,
 
 		maxOffset = 1 / 30,
 		video = document.getElementById('video'),
@@ -61,7 +62,7 @@
 		//we missed our window, so seek ahead and try again
 		if (currentDiff >= EPSILON && video.readyState < 2 || currentDiff > 1) {
 			skip = Math.pow(2, Math.min(4, Math.max(retries, 1)));
-			targetTime = (currentTime + skip) % video.duration;
+			targetTime = (currentTime + skip) % DURATION;
 			video.pause();
 			video.currentTime = targetTime;
 			retries++;
@@ -83,7 +84,7 @@
 		}
 
 		console.log('video metadata', video.duration, video.videoWidth, video.videoHeight);
-		durationInMilliseconds = Math.round(video.duration * 1000);
+		durationInMilliseconds = Math.round(DURATION * 1000);
 		if (remoteClock.accuracy() > 100) {
 			return;
 		}
