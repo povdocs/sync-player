@@ -6,7 +6,7 @@ This is a demonstration of synchronizing a video player across multiple browser 
 
 ## License
 - Original code is made avalable under [MIT License](http://www.opensource.org/licenses/mit-license.php), Copyright (c) 2014 American Documentary Inc.
-- Trailer video from "Koch" by Neil Barsky
+- Trailer video from "Koch" by Neil Barsky, Copyright (c) 2014 How Am I Doing Films. All rights reserved.
 
 ## Authors
 - Code, concept and design by [Brian Chirls](http://chirls.com), POV Digital Technology Fellow
